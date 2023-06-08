@@ -1,6 +1,6 @@
 from os import system as run
 
-version = "1.2.0"
+version = "1.3.0"
 
 
 def clearScn():
@@ -26,8 +26,8 @@ class msgHandler:
 
 playerArray = []
 
-msgHandler.banner("Chivary's Oath")
-msgHandler.title("Chivary's Oath - " + version)
+msgHandler.banner("Chivalry's Oath")
+msgHandler.title("Chivalry's Oath - " + version)
 
 while True:
     try:
@@ -39,7 +39,7 @@ while True:
         msgHandler.warn("非法输入值（玩家数量过少或输入非奇数）")
         continue
 
-msgHandler.banner("Chivary's Oath")
+msgHandler.banner("Chivalry's Oath")
 
 playerArray.append([0, "裁判"])
 for i in range(playerCount):
@@ -55,7 +55,7 @@ for i in range(playerCount):
             msgHandler.warn("非法输入值（玩家名字为空）")
             continue
 
-msgHandler.banner("Chivary's Oath")
+msgHandler.banner("Chivalry's Oath")
 
 print("\n玩家名单\n", playerArray, sep="")
 
