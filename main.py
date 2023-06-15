@@ -146,7 +146,7 @@ while True:
         attackResult = random.randint(0, 100)
         if playerOnStage[2] > attackResult:
             msgHandler.info(
-                f"{attackResult} - 攻击成功：{playerOnStage[1]} 让 {targetPlayer[1]}鲜血满地！"
+                f"{attackResult} - 攻击成功：{playerOnStage[1]} 让 {targetPlayer[1]} 鲜血满地！"
             )
             targetPlayer[0] = "x"
             input("按下 Enter 开启下一回合\n>>")
@@ -168,7 +168,7 @@ while True:
                     playerOnStage[0] = "x"
                 else:
                     msgHandler.info(
-                        f"{playerOnStage[1]} 安然无恙…… 暂时的。不知道{targetPlayer[1]}是否会伺机寻仇呢？"
+                        f"{playerOnStage[1]} 安然无恙…… 暂时的。不知道 {targetPlayer[1]} 是否会伺机寻仇呢？"
                     )
             input("按下 Enter 开启下一回合\n>>")
             roundCount -= -1
