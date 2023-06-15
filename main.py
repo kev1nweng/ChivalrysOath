@@ -1,7 +1,7 @@
 from os import system as run
 import random
 
-version = "1.3.0"
+version = "1.4.0"
 
 
 def clearScn():
