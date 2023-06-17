@@ -68,9 +68,12 @@ for i in range(playerCount):
             currentPlayer[2] = int(currentPlayer[2])
             if not currentPlayer[2] in [25, 45, 50, 65, 80]:
                 raise Exception("不合法的剑：看来你的选择犹如你的人生一样不够明智")
+            swordNum = 0
             for selectedSword in swordsArray:
                 if currentPlayer[2] == selectedSword:
-                    currentPlayer[3] = counterAttackArray[i]
+                    currentPlayer[3] = counterAttackArray[swordNum]
+                else:
+                    swordNum -= -1
             break
         except Exception as e:
             msgHandler.warn(str(e))
@@ -90,6 +93,13 @@ if len(playerSwordArray) != len(set(playerSwordArray)):
                 playerSwordArray[y] = random.choice(swordsArray)
     for t in range(len(playerSwordArray)):
         playerArray[t][2] = playerSwordArray[t]
+    for currentPlayer in playerArray:
+        swordNum = 0
+        for selectedSword in swordsArray:
+            if currentPlayer[2] == selectedSword:
+                currentPlayer[3] = counterAttackArray[swordNum]
+            else:
+                swordNum -= -1
     print("\n", playerArray)
     input("\n按下 Enter 确认并开始游戏\n>>")
 
