@@ -2,7 +2,7 @@ from time import sleep
 from os import system as run
 import random
 
-version = "2.0.0"
+version = "2.0.1"
 
 
 def clearScn():
@@ -53,7 +53,7 @@ for i in range(playerCount):
     while True:
         try:
             msgHandler.banner("Chivalry's Oath - 玩家设置")
-            playerArray.append([0, "", 0, 0])
+            playerArray.append([0, "", 0, 0, ""])
             currentPlayer = playerArray[i + 1]
             currentPlayer[0] = i + 1  # 玩家ID
             currentPlayer[1] = input("\n请输入玩家" + str(i + 1) + "的名字\n>> ")  # 玩家名称
@@ -63,8 +63,11 @@ for i in range(playerCount):
                 "\n请输入玩家 " + str(i + 1) + " 选择的剑\n选择范围：25/45/50/65/80/random\n>> "
             )
             if currentPlayer[2] == "random":
+                currentPlayer[4] = "R"
                 currentPlayer[2] = random.choice(swordsArray)
                 print("选出的剑：" + str(currentPlayer[2]))
+            else:
+                currentPlayer[4] = "C"
             currentPlayer[2] = int(currentPlayer[2])
             if not currentPlayer[2] in [25, 45, 50, 65, 80]:
                 raise Exception("不合法的剑：看来你的选择犹如你的人生一样不够明智")
@@ -92,7 +95,8 @@ if len(playerSwordArray) != len(set(playerSwordArray)):
             if playerSwordArray[x] == playerSwordArray[y]:
                 playerSwordArray[y] = random.choice(swordsArray)
     for t in range(len(playerSwordArray)):
-        playerArray[t][2] = playerSwordArray[t]
+        if not playerArray[t][4] == "R":
+            playerArray[t][2] = playerSwordArray[t]
     for currentPlayer in playerArray:
         swordNum = 0
         for selectedSword in swordsArray:
@@ -186,6 +190,6 @@ while True:
         break
 
 msgHandler.banner("Chivalry's Oath - 游戏结束")
-msgHandler.info(f"游戏结束！浴血的那位赢家是：({winner[0]}): {winner[1]} - {winner[2]}！")
+msgHandler.info(f"游戏结束！浴血的那位赢家是：({winner[0]}): {winner[1]} - TA 拿着 {winner[2]}% 的刀！")
 
 input("按下 Enter 退出游戏。…… 你真的退出了…… 吗？\n>>")
