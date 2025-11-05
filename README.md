@@ -1,4 +1,3 @@
-
 # 🗡 Chivalry's Oath
 
 Chivalry's Oath（骑士誓言）：一个简单而有趣的逻辑游戏。
